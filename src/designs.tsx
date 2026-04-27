@@ -1,7 +1,7 @@
 import './designs.css'
 
-const HEADLINE = 'Catch missinformation before it reaches your moms feed'
-const SUBLINE = 'The first factchecker that keeps up with the speed of the feed. Share any post and keep scrolling your factcheck will arive in a few seconds'
+const HEADLINE = "Catch misinformation before it reaches your mom's feed"
+const SUBLINE = 'The first factchecker that keeps up with the speed of the feed. Share any post and keep scrolling — your factcheck will arrive in a few seconds'
 const MISSION_LABEL = 'Mission'
 const MISSION = "Misinformation isn't a literacy problem — it's an infrastructure problem. We're making factchecking easy, fast, and entertaining, because truth deserves better distribution than the slop. Next step: AI detection"
 
