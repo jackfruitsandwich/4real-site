@@ -1,0 +1,123 @@
+.md-page {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 64px 24px 48px;
+}
+
+.md-page-inner {
+  width: min(780px, 100%);
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.md-page-inner h1 {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 8px;
+  color: #fff;
+}
+
+.md-page-inner h2 {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 40px 0 12px;
+  color: #fff;
+}
+
+.md-page-inner h3 {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.3;
+  margin: 28px 0 8px;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.md-page-inner p {
+  margin: 0 0 14px;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.md-page-inner strong {
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 600;
+}
+
+.md-page-inner a {
+  color: rgba(180, 210, 255, 0.9);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.md-page-inner a:hover {
+  color: #fff;
+}
+
+.md-page-inner ul {
+  margin: 0 0 14px;
+  padding-left: 24px;
+}
+
+.md-page-inner li {
+  margin-bottom: 6px;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.md-page-inner hr {
+  border: none;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.12);
+  margin: 32px 0;
+}
+
+.md-page-inner table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0 24px;
+  font-size: 14px;
+}
+
+.md-page-inner th {
+  text-align: left;
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.md-page-inner td {
+  padding: 8px 12px;
+  color: rgba(255, 255, 255, 0.75);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.md-page-inner tr:last-child td {
+  border-bottom: none;
+}
+
+@media (max-width: 600px) {
+  .md-page {
+    padding: 40px 16px 32px;
+  }
+
+  .md-page-inner h1 {
+    font-size: 26px;
+  }
+
+  .md-page-inner h2 {
+    font-size: 19px;
+  }
+
+  .md-page-inner table {
+    font-size: 13px;
+  }
+
+  .md-page-inner th,
+  .md-page-inner td {
+    padding: 6px 8px;
+  }
+}
