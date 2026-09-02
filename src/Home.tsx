@@ -1,7 +1,5 @@
-import { PhoneFrame } from './Phone'
-import { ReportScreen, VerdictPill } from './Report'
-import { Banner } from './Banner'
-import { HERO_POST } from './demo'
+import { VerdictPill } from './Report'
+import { HeroDemo } from './HeroDemo'
 import './home.css'
 
 /* App Store badge. Not live yet, so it's a labelled placeholder rather than a link. */
@@ -97,12 +95,7 @@ export function Home() {
         </div>
 
         <div className="hero-demo">
-          <PhoneFrame className="hero-phone">
-            <ReportScreen post={HERO_POST} expanded={0} />
-          </PhoneFrame>
-          <div className="hero-banner" aria-hidden="true">
-            <Banner />
-          </div>
+          <HeroDemo className="hero-phone" />
         </div>
       </section>
 

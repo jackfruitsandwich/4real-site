@@ -145,22 +145,6 @@
   --pt: 0.64px;
 }
 
-.hero-banner {
-  --pt: 1px;
-  position: absolute;
-  z-index: 3;
-  top: 72%;
-  left: 50%;
-  width: 340px;
-  transform: translateX(-74%);
-  animation: banner-in 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.6s both;
-}
-
-@keyframes banner-in {
-  from { opacity: 0; transform: translateX(-74%) translateY(-18px) scale(0.96); }
-  to { opacity: 1; transform: translateX(-74%) translateY(0) scale(1); }
-}
-
 /* Ticker */
 
 .ticker {
@@ -274,18 +258,6 @@
     padding-bottom: 24px;
   }
 
-  /* Inside the screen, under the status row, like a real banner */
-  .hero-banner {
-    top: calc(24px + 78 * var(--hero-pt));
-    left: 50%;
-    transform: translateX(-50%);
-    width: calc(414 * var(--hero-pt));
-  }
-
-  @keyframes banner-in {
-    from { opacity: 0; transform: translateX(-50%) translateY(-18px) scale(0.96); }
-    to { opacity: 1; transform: translateX(-50%) translateY(0) scale(1); }
-  }
 
   .hero-phone {
     --pt: var(--hero-pt);

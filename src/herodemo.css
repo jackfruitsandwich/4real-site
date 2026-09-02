@@ -1,0 +1,195 @@
+/* Feed scene (StoryReelPage), in points via --pt */
+
+.feed {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, #1a1c21, #383839);
+  color: #fff;
+  overflow: hidden;
+}
+
+.feed-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.feed-scrim-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: calc(130 * var(--pt));
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.45), transparent);
+}
+
+.feed-scrim-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: calc(190 * var(--pt));
+  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.55));
+}
+
+.feed-head {
+  position: absolute;
+  top: calc(59 * var(--pt));
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: calc(4 * var(--pt)) calc(16 * var(--pt));
+  font-size: calc(16 * var(--pt));
+  font-weight: 600;
+}
+
+.feed-head svg {
+  width: calc(22 * var(--pt));
+  height: calc(22 * var(--pt));
+}
+
+.feed-meta {
+  position: absolute;
+  left: calc(18 * var(--pt));
+  right: calc(80 * var(--pt));
+  bottom: calc(86 * var(--pt));
+  display: flex;
+  flex-direction: column;
+  gap: calc(11 * var(--pt));
+}
+
+.feed-author {
+  display: flex;
+  align-items: center;
+  gap: calc(8 * var(--pt));
+  font-size: calc(16 * var(--pt));
+  font-weight: 600;
+}
+
+.feed-author svg {
+  width: calc(15 * var(--pt));
+  height: calc(15 * var(--pt));
+}
+
+.feed-avatar {
+  width: calc(34 * var(--pt));
+  height: calc(34 * var(--pt));
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+  flex-shrink: 0;
+}
+
+.feed-follow {
+  font-size: calc(15 * var(--pt));
+  padding: calc(5 * var(--pt)) calc(12 * var(--pt));
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 999px;
+}
+
+.feed-caption {
+  font-size: calc(15 * var(--pt));
+  color: rgba(255, 255, 255, 0.86);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.feed-rail {
+  position: absolute;
+  right: calc(15 * var(--pt));
+  bottom: calc(80 * var(--pt));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: calc(25 * var(--pt));
+}
+
+.rail-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: calc(4 * var(--pt));
+  font-size: calc(11 * var(--pt));
+  font-weight: 600;
+}
+
+.rail-item svg {
+  width: calc(25 * var(--pt));
+  height: calc(25 * var(--pt));
+  margin: calc(5.5 * var(--pt)) calc(8.5 * var(--pt));
+}
+
+.feed-tabs {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: calc(80 * var(--pt));
+  padding: calc(12 * var(--pt)) calc(28 * var(--pt)) 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.feed-tabs svg {
+  width: calc(24 * var(--pt));
+  height: calc(24 * var(--pt));
+}
+
+/* The room dims when the banner lands, so the banner is the one lit thing */
+.feed-dim {
+  position: absolute;
+  inset: 0;
+  background: #000;
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+}
+
+.feed-dim-on {
+  opacity: 0.28;
+}
+
+/* The banner drops in under the status row, like iOS */
+.banner-drop {
+  position: absolute;
+  left: calc(8 * var(--pt));
+  right: calc(8 * var(--pt));
+  top: calc(66 * var(--pt));
+  z-index: 20;
+  animation: banner-drop 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  transition: transform 0.18s ease;
+}
+
+@keyframes banner-drop {
+  from { opacity: 0; transform: translateY(calc(-40 * var(--pt))); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.banner-tapped {
+  transform: scale(0.96);
+}
+
+/* The report is pushed in, like a navigation push */
+.report-push {
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  animation: report-push 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+@keyframes report-push {
+  from { opacity: 0; transform: translateY(4%) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .banner-drop,
+  .report-push {
+    animation: none;
+  }
+}
