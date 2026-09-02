@@ -1,0 +1,166 @@
+/* GlassPhoneMock geometry: outer W = 430 / 0.936 = 459.4pt, H = 932 + 2·14.7 = 961.4pt */
+
+.phone {
+  --pt: 0.68px;
+  --pw: calc(459.4 * var(--pt));
+  --ph: calc(961.4 * var(--pt));
+  --inset: calc(14.7 * var(--pt));
+  --screen-r: calc(45.6 * var(--pt));
+  --outer-r: calc(60.3 * var(--pt));
+  --chrome: calc(7.8 * var(--pt));
+  position: relative;
+  width: var(--pw);
+  height: var(--ph);
+  flex-shrink: 0;
+  filter: drop-shadow(0 calc(41 * var(--pt)) calc(30 * var(--pt)) rgba(0, 0, 0, 0.22));
+}
+
+.phone-body {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--outer-r);
+  background: linear-gradient(135deg, #696b73 0%, #0d0d0f 50%, #3d4045 100%);
+  box-shadow:
+    inset 0 0 0 calc(2.3 * var(--pt)) rgba(0, 0, 0, 0.82),
+    calc(-8 * var(--pt)) calc(8 * var(--pt)) calc(16 * var(--pt)) rgba(0, 0, 0, 0.24),
+    calc(12 * var(--pt)) calc(25 * var(--pt)) calc(24 * var(--pt)) rgba(0, 0, 0, 0.42);
+}
+
+.phone-body::before {
+  /* rim light */
+  content: '';
+  position: absolute;
+  inset: calc(2 * var(--pt));
+  border-radius: calc(var(--outer-r) - 2 * var(--pt));
+  padding: calc(1.8 * var(--pt));
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.46), rgba(255, 255, 255, 0.05) 50%, rgba(0, 0, 0, 0.38));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.phone-bezel {
+  position: absolute;
+  inset: var(--chrome);
+  border-radius: calc(var(--outer-r) - var(--chrome));
+  background: #000;
+  box-shadow: inset 0 0 0 calc(0.9 * var(--pt)) rgba(255, 255, 255, 0.08);
+}
+
+.phone-screen {
+  position: absolute;
+  left: var(--inset);
+  top: var(--inset);
+  width: calc(430 * var(--pt));
+  height: calc(932 * var(--pt));
+  border-radius: var(--screen-r);
+  overflow: hidden;
+  background: #000;
+  color: #000;
+  font-family: var(--font);
+  /* isolate so blend modes and blurs inside stay inside */
+  isolation: isolate;
+  transform: translateZ(0);
+}
+
+.phone-glass {
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  pointer-events: none;
+  border-radius: var(--screen-r);
+  background:
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.08), transparent 50%, rgba(0, 0, 0, 0.14)),
+    linear-gradient(to bottom right, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0.06) 30%, transparent 55%);
+  mix-blend-mode: screen;
+  box-shadow: inset 0 0 0 calc(0.9 * var(--pt)) rgba(255, 255, 255, 0.18);
+}
+
+.phone-island {
+  position: absolute;
+  left: 50%;
+  top: calc(var(--inset) + 29.3 * var(--pt));
+  width: calc(125.3 * var(--pt));
+  height: calc(37 * var(--pt));
+  transform: translate(-50%, -50%);
+  border-radius: 999px;
+  background: #000;
+  z-index: 60;
+}
+
+.phone-btn {
+  position: absolute;
+  width: calc(5.8 * var(--pt));
+  background: linear-gradient(90deg, #141517, #404144, #1a1b1d);
+  border-radius: calc(2.2 * var(--pt));
+  box-shadow: inset 0 0 0 0.65px rgba(0, 0, 0, 0.5);
+}
+
+.phone-btn-l1,
+.phone-btn-l2,
+.phone-btn-l3 {
+  left: calc(-4.6 * var(--pt));
+}
+
+.phone-btn-l1 {
+  top: calc(0.196 * var(--ph) - 0.018 * var(--ph));
+  height: calc(0.036 * var(--ph));
+}
+
+.phone-btn-l2 {
+  top: calc(0.285 * var(--ph) - 0.035 * var(--ph));
+  height: calc(0.07 * var(--ph));
+}
+
+.phone-btn-l3 {
+  top: calc(0.372 * var(--ph) - 0.035 * var(--ph));
+  height: calc(0.07 * var(--ph));
+}
+
+.phone-btn-r {
+  right: calc(-4.6 * var(--pt));
+  top: calc(0.353 * var(--ph) - 0.054 * var(--ph));
+  height: calc(0.108 * var(--ph));
+  background: linear-gradient(270deg, #141517, #404144, #1a1b1d);
+}
+
+/* Status row, on the device's real 59pt safe area */
+
+.status {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: calc(59 * var(--pt));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 calc(30 * var(--pt)) 0 calc(48 * var(--pt));
+  padding-top: calc(6 * var(--pt));
+  z-index: 40;
+  color: #000;
+  pointer-events: none;
+}
+
+.status-light {
+  color: #fff;
+}
+
+.status-time {
+  font-size: calc(17 * var(--pt));
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.status-glyphs {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(7 * var(--pt));
+}
+
+.status-glyphs svg {
+  width: auto;
+  height: calc(12 * var(--pt));
+}

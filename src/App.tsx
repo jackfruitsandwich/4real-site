@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Shell } from './Shell'
-import { D8 } from './designs'
+import { Home } from './Home'
 import { MarkdownPage } from './MarkdownPage'
 
 function getRoute(): string {
@@ -25,12 +25,8 @@ export default function App() {
       page = <MarkdownPage src="/terms-conditions.md" />
       break
     default:
-      page = <D8 />
+      page = <Home />
   }
 
-  return (
-    <Shell>
-      {page}
-    </Shell>
-  )
+  return <Shell>{page}</Shell>
 }

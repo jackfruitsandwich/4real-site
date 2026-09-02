@@ -4,22 +4,68 @@
   padding: 0;
 }
 
+:root {
+  /* Tokens from the app (RedesignTheme.swift) */
+  --paper: #f6f3ef;
+  --ink: #211c1a;
+  --blue: #0d63a3;
+  --red: #e53c14;
+  --rose: #c94258;
+  --peach: #eab6a0;
+  --salmon: #e28577;
+  --slate: #6b7889;
+
+  --muted: rgba(33, 28, 26, 0.6);
+  --faint: rgba(33, 28, 26, 0.38);
+  --line: rgba(33, 28, 26, 0.1);
+
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Helvetica,
+    Arial, sans-serif;
+}
+
 html {
-  font-family: "SF Pro Display", "SF Pro Text", -apple-system, BlinkMacSystemFont,
-    "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: var(--font);
+  font-feature-settings: 'cv11', 'ss01', 'ss03';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.5;
-  color: #1d1d1f;
-  background: #f5f5f7;
+  color: var(--ink);
+  background: var(--paper);
 }
 
 body {
   min-height: 100vh;
-  background: #173454;
+  background: var(--paper);
+  overflow-x: clip;
 }
 
 #root {
   width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+}
+
+::selection {
+  background: rgba(13, 99, 163, 0.18);
+}
+
+:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001s !important;
+  }
 }

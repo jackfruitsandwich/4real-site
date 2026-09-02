@@ -1,68 +1,107 @@
 .shell {
-  min-height: 100dvh;
   position: relative;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  background: var(--paper);
 }
 
-.shell-gradient {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
+/* Nav */
+
+.shell-nav {
+  position: relative;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px clamp(20px, 5vw, 56px);
 }
+
+.shell-nav-brand {
+  text-decoration: none;
+  line-height: 1;
+}
+
+.wordmark {
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  line-height: 1;
+}
+
+.wordmark-q {
+  background: linear-gradient(135deg, var(--blue) 0%, var(--rose) 55%, var(--salmon) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.shell-nav-links {
+  display: flex;
+  gap: 22px;
+}
+
+.shell-nav-links a {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.18s ease;
+}
+
+.shell-nav-links a:hover {
+  color: var(--ink);
+}
+
+/* Content */
 
 .shell-content {
-  position: relative;
-  z-index: 1;
   flex: 1;
   display: flex;
   flex-direction: column;
 }
 
-/* ── Footer (locked) ──────────────────────────── */
+/* Footer */
 
-.t1-footer {
-  position: relative;
-  z-index: 1;
-  padding: 32px 32px 40px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 14px;
-}
-
-.t1-footer-links,
-.t1-footer-social {
+.shell-footer {
+  padding: 28px clamp(20px, 5vw, 56px) 40px;
   display: flex;
   align-items: center;
-  gap: 12px;
+  justify-content: space-between;
+  gap: 16px;
   flex-wrap: wrap;
-  justify-content: center;
+  border-top: 1px solid var(--line);
 }
 
-.t1-footer a {
+.shell-footer-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.shell-footer a {
   font-size: 13px;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--muted);
   text-decoration: none;
-  transition: color 0.2s;
+  transition: color 0.18s ease;
 }
 
-.t1-footer a:hover {
-  color: rgba(255, 255, 255, 0.8);
+.shell-footer a:hover {
+  color: var(--ink);
 }
 
-.t1-footer-dot {
-  width: 3px;
-  height: 3px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.2);
-  flex-shrink: 0;
-}
-
-.t1-copyright {
-  font-size: 12px;
+.shell-copyright {
+  font-size: 13px;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.2);
+  color: var(--faint);
+}
+
+@media (max-width: 640px) {
+  .shell-footer {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 14px;
+  }
 }
