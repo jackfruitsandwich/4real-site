@@ -41,7 +41,7 @@ export function FaviconChip({ source, size }: { source: Source; size: number }) 
   }
   return (
     <span className="favicon" style={s}>
-      <img src={faviconURL(source.domain)} alt="" loading="lazy" onError={() => setFailed(true)} />
+      <img src={faviconURL(source.domain)} alt="" onError={() => setFailed(true)} />
     </span>
   )
 }
