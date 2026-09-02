@@ -12,7 +12,6 @@
   width: var(--pw);
   height: var(--ph);
   flex-shrink: 0;
-  filter: drop-shadow(0 calc(41 * var(--pt)) calc(30 * var(--pt)) rgba(0, 0, 0, 0.22));
 }
 
 .phone-body {
@@ -23,7 +22,8 @@
   box-shadow:
     inset 0 0 0 calc(2.3 * var(--pt)) rgba(0, 0, 0, 0.82),
     calc(-8 * var(--pt)) calc(8 * var(--pt)) calc(16 * var(--pt)) rgba(0, 0, 0, 0.24),
-    calc(12 * var(--pt)) calc(25 * var(--pt)) calc(24 * var(--pt)) rgba(0, 0, 0, 0.42);
+    calc(12 * var(--pt)) calc(25 * var(--pt)) calc(24 * var(--pt)) rgba(0, 0, 0, 0.42),
+    0 calc(41 * var(--pt)) calc(60 * var(--pt)) rgba(0, 0, 0, 0.22);
 }
 
 .phone-body::before {
@@ -57,12 +57,13 @@
   height: calc(932 * var(--pt));
   border-radius: var(--screen-r);
   overflow: hidden;
+  /* Safari lets backdrop-filter children escape overflow clipping; clip-path holds them */
+  -webkit-clip-path: inset(0 round var(--screen-r));
+  clip-path: inset(0 round var(--screen-r));
   background: #000;
   color: #000;
   font-family: var(--font);
-  /* isolate so blend modes and blurs inside stay inside */
   isolation: isolate;
-  transform: translateZ(0);
 }
 
 .phone-glass {
