@@ -268,16 +268,18 @@
   }
 
   .hero-demo {
+    --hero-pt: min(0.8px, calc((100vw - 36px) / 459));
     min-height: 0;
-    padding-top: 64px;
+    padding-top: 24px;
     padding-bottom: 24px;
   }
 
+  /* Inside the screen, under the status row, like a real banner */
   .hero-banner {
-    top: 0;
+    top: calc(24px + 78 * var(--hero-pt));
     left: 50%;
     transform: translateX(-50%);
-    width: min(360px, calc(100vw - 32px));
+    width: calc(414 * var(--hero-pt));
   }
 
   @keyframes banner-in {
@@ -286,7 +288,7 @@
   }
 
   .hero-phone {
-    --pt: min(0.8px, calc((100vw - 36px) / 459));
+    --pt: var(--hero-pt);
   }
 }
 
@@ -295,8 +297,8 @@
     font-size: clamp(40px, 12.5vw, 52px);
   }
 
-  .hero-phone {
-    --pt: calc((100vw - 32px) / 459);
+  .hero-demo {
+    --hero-pt: calc((100vw - 32px) / 459);
   }
 
   .home-aura {
