@@ -151,7 +151,7 @@ export function HeroDemo({ className = '' }: { className?: string }) {
       )}
       {showReport && (
         <div className={`report-push ${stage === 'out' ? 'report-out' : ''}`}>
-          <ReportScreen post={post} expanded={stage === 'expanded' || stage === 'out' ? 0 : null} />
+          <ReportScreen post={post} expanded={stage === 'expanded' || stage === 'out' ? 1 : null} />
         </div>
       )}
     </PhoneFrame>
