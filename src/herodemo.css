@@ -142,54 +142,71 @@
 }
 
 /* The room dims when the banner lands, so the banner is the one lit thing */
+/* Story spring (response 0.75, damping 0.86): the room dims to 0.34 in place */
 .feed-dim {
   position: absolute;
   inset: 0;
   background: #000;
   opacity: 0;
-  transition: opacity 0.5s ease-out;
+  transition: opacity 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .feed-dim-on {
-  opacity: 0.28;
+  opacity: 0.34;
 }
 
-/* The banner drops in under the status row, like iOS */
+/* Banner: .move(edge: .top) + .opacity, spring(response 0.5, damping 0.8) */
 .banner-drop {
   position: absolute;
-  left: calc(8 * var(--pt));
-  right: calc(8 * var(--pt));
-  top: calc(66 * var(--pt));
+  left: calc(12 * var(--pt));
+  right: calc(12 * var(--pt));
+  top: calc(62 * var(--pt));
   z-index: 20;
-  animation: banner-drop 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) both;
-  transition: transform 0.18s ease;
+  animation: banner-drop 0.55s cubic-bezier(0.3, 1.25, 0.5, 1) both;
+}
+
+.banner-press {
+  transition: transform 0.16s ease-out;
 }
 
 @keyframes banner-drop {
-  from { opacity: 0; transform: translateY(calc(-40 * var(--pt))); }
+  from { opacity: 0; transform: translateY(-140%); }
+  40% { opacity: 1; }
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* Press dip on tap */
 .banner-tapped {
-  transform: scale(0.96);
+  transform: scale(0.94);
 }
 
-/* The report is pushed in, like a navigation push */
+/* Report: .opacity + .scale(0.96) under the story spring, over the still-dim feed */
 .report-push {
   position: absolute;
   inset: 0;
   z-index: 30;
-  animation: report-push 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation: report-push 0.65s cubic-bezier(0.25, 0.8, 0.25, 1) both;
 }
 
 @keyframes report-push {
-  from { opacity: 0; transform: translateY(4%) scale(0.98); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.report-out {
+  animation: report-out 0.45s ease-in both;
+}
+
+@keyframes report-out {
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0; transform: scale(0.98); }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .banner-drop,
-  .report-push {
+  .report-push,
+  .report-out,
+  .banner-breathe {
     animation: none;
   }
 }

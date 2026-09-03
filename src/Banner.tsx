@@ -1,9 +1,9 @@
 import './banner.css'
 
 /* StoryNotificationBanner from the app's onboarding: the verdict landing on your feed */
-export function Banner() {
+export function Banner({ breathe = false }: { breathe?: boolean }) {
   return (
-    <div className="banner">
+    <div className={`banner ${breathe ? 'banner-breathe' : ''}`}>
       <img className="banner-icon" src="/story/icon-4real.png" alt="" />
       <div className="banner-body">
         <div className="banner-top">

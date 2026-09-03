@@ -60,8 +60,9 @@ function ClaimCard({ claim, expanded }: { claim: Claim; expanded: boolean }) {
         </span>
       </div>
       <p className="claim-statement">{claim.statement}</p>
-      {expanded && (
-        <>
+      {/* spring(response 0.3, damping 0.7) in the app; grid rows animate the height here */}
+      <div className={`claim-more ${expanded ? 'claim-more-open' : ''}`} aria-hidden={!expanded}>
+        <div className="claim-more-inner">
           <div className="claim-rule" />
           <div className="claim-why">WHY THIS VERDICT</div>
           <p className="claim-explanation">{claim.explanation}</p>
@@ -77,8 +78,8 @@ function ClaimCard({ claim, expanded }: { claim: Claim; expanded: boolean }) {
               </div>
             ))}
           </div>
-        </>
-      )}
+        </div>
+      </div>
     </div>
   )
 }

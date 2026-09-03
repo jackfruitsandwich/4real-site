@@ -53,3 +53,13 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+/* The banner is a breathing tap target: 1.03 at 0.9s, armed 0.35s after it lands */
+.banner-breathe {
+  animation: banner-breathe 0.9s ease-in-out 0.9s infinite alternate;
+}
+
+@keyframes banner-breathe {
+  from { transform: scale(1); }
+  to { transform: scale(1.03); }
+}

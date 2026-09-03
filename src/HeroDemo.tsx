@@ -25,14 +25,17 @@ import './herodemo.css'
   the reasoning and sources. Feed chrome is a port of StoryReelPage.
 */
 
-type Stage = 'feed' | 'banner' | 'tap' | 'report' | 'expanded'
+type Stage = 'feed' | 'banner' | 'tap' | 'report' | 'expanded' | 'out'
 
+/* Beat timing follows the onboarding: the verdict lands 1.9s into the beat,
+   the tap dips the banner, the report springs in over the dimmed feed. */
 const STAGE_MS: Record<Stage, number> = {
-  feed: 2200,
-  banner: 2600,
-  tap: 420,
-  report: 1800,
+  feed: 2400,
+  banner: 3000,
+  tap: 220,
+  report: 1500,
   expanded: 5200,
+  out: 500,
 }
 
 const NEXT: Record<Stage, Stage> = {
@@ -40,7 +43,8 @@ const NEXT: Record<Stage, Stage> = {
   banner: 'tap',
   tap: 'report',
   report: 'expanded',
-  expanded: 'feed',
+  expanded: 'out',
+  out: 'feed',
 }
 
 const post = HERO_POST
@@ -130,21 +134,24 @@ export function HeroDemo({ className = '' }: { className?: string }) {
     return () => clearTimeout(id)
   }, [stage, reduced])
 
-  const showFeed = stage === 'feed' || stage === 'banner' || stage === 'tap'
   const showBanner = stage === 'banner' || stage === 'tap'
-  const showReport = stage === 'report' || stage === 'expanded'
+  const showReport = stage === 'report' || stage === 'expanded' || stage === 'out'
+  /* The room dims when the verdict lands and stays dim under the report, like the app */
+  const dim = showBanner || showReport
 
   return (
     <PhoneFrame className={className}>
-      {showFeed && <FeedScene dim={showBanner} />}
+      <FeedScene dim={dim} />
       {showBanner && (
-        <div className={`banner-drop ${stage === 'tap' ? 'banner-tapped' : ''}`}>
-          <Banner />
+        <div className="banner-drop">
+          <div className={`banner-press ${stage === 'tap' ? 'banner-tapped' : ''}`}>
+            <Banner breathe />
+          </div>
         </div>
       )}
       {showReport && (
-        <div className="report-push">
-          <ReportScreen post={post} expanded={stage === 'expanded' ? 0 : null} />
+        <div className={`report-push ${stage === 'out' ? 'report-out' : ''}`}>
+          <ReportScreen post={post} expanded={stage === 'expanded' || stage === 'out' ? 0 : null} />
         </div>
       )}
     </PhoneFrame>
