@@ -1,5 +1,5 @@
 /*
-  The onboarding story's hero post, ported from StoryDemoPosts.swift.
+  A post from the app's onboarding demo set, ported from StoryDemoPosts.swift.
   Claims, verdicts and sources are the real production report for this video.
 */
 
@@ -27,38 +27,39 @@ export type DemoPost = {
 const src = (domain: string): Source => ({ url: `https://${domain}`, domain })
 
 export const HERO_POST: DemoPost = {
-  video: '/story/floor-sleeping.mp4',
-  poster: '/story/floor-sleeping.jpg',
-  handle: 'explainingourbody',
+  video: '/story/3am-wakeup.mp4',
+  poster: '/story/3am-wakeup.jpg',
+  handle: 'dr.cayleychirumbolo',
   caption:
-    'Sleeping on the ground for 30 days straight sounds like a simple change, but it can create a surprisingly diff',
-  likes: '60.9K',
-  comments: '973',
-  sheetTitle: '30 days sleeping on the floor',
-  reportTitle: '30 days sleeping on the floor',
+    'Let me paint you a picture of a day that might sound very familiar. You wake up in the morning already exhaus',
+  likes: '22.6K',
+  comments: '2.2K',
+  sheetTitle: 'Why you wake up at 3am',
+  reportTitle: 'Why you wake up at 3am',
   claims: [
     {
       statement:
-        "Sleeping on the floor for 30 days leads to a 'complete structural reboot' with a 'perfectly aligned' spine.",
-      verdict: 'Refuted',
-      explanation:
-        'The video frames floor sleeping as a bio-hack that permanently restructures your skeleton, but the human spine has natural curves that require support. Research shows hard surfaces can flatten the lumbar curve and increase contact pressure, which may cause pain. Multiple reviews and a computational modeling study found that medium-firm mattresses, not bare floors, best preserve natural spinal alignment.',
-      sources: [src('pmc.ncbi.nlm.nih.gov'), src('scientificamerican.com'), src('sleepfoundation.org')],
-    },
-    {
-      statement: "After three weeks of floor sleeping, chronic lower back pain is 'completely gone.'",
+        'Waking up between 2:00 and 4:00 a.m. is likely caused by a blood sugar crash, not by stress, anxiety, or being a light sleeper.',
       verdict: 'Misleading',
       explanation:
-        'The video guarantees that chronic lower back pain will vanish within three weeks, but clinical evidence shows results are highly individual. A landmark 2003 Lancet trial found medium-firm mattresses reduced back pain more than firm ones, and experts warn that hard floors can worsen stiffness or nerve irritation.',
-      sources: [src('healthline.com'), src('mattressmiracle.ca'), src('scientificamerican.com')],
+        'Nocturnal hypoglycemia can disrupt sleep, but major medical sources describe it primarily as a complication of diabetes treatment with insulin or sulfonylureas. For the general population, waking in the early morning hours is commonly caused by stress, anxiety, sleep apnea, or normal sleep-stage transitions.',
+      sources: [src('cdc.gov'), src('hopkinsmedicine.org'), src('niddk.nih.gov')],
     },
     {
       statement:
-        "Floor sleeping makes your brain 'shut down much faster at night' and produces a sleep 'so deep, a soft mattress would never allow.'",
+        'When blood sugar drops during sleep, the body releases a surge of adrenaline and cortisol that wakes you up.',
+      verdict: 'Refuted',
+      explanation:
+        'Primary physiologic studies directly contradict this mechanism. In controlled studies of people with type 1 diabetes, epinephrine responses to hypoglycemia were markedly blunted during deep sleep compared with wakefulness, and cortisol levels did not increase during nocturnal hypoglycemic episodes.',
+      sources: [src('nejm.org'), src('onlinelibrary.wiley.com'), src('pmc.ncbi.nlm.nih.gov')],
+    },
+    {
+      statement:
+        'Morning fatigue and an afternoon energy crash share a single root cause with nighttime waking: blood sugar dysregulation.',
       verdict: 'Misleading',
       explanation:
-        'The video claims floor sleeping triggers uniquely deep, fast-onset sleep, yet research indicates pressure points on hard surfaces can increase tossing and turning that fragments deep sleep and REM. Experts note that any sleep improvement may come from cooler temperatures near the floor.',
-      sources: [src('indianexpress.com'), src('scientificamerican.com'), src('sleepfoundation.org')],
+        'Nocturnal hypoglycemia can leave you tired in the morning, and reactive blood-sugar swings after meals may contribute to afternoon fatigue. However, these three symptoms frequently have unrelated causes, such as poor sleep hygiene, obstructive sleep apnea, or normal circadian dips.',
+      sources: [src('diatribe.org'), src('joslin.org'), src('mcpress.mayoclinic.org')],
     },
   ],
 }

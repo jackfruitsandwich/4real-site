@@ -7,10 +7,10 @@ export function Banner() {
       <img className="banner-icon" src="/story/icon-4real.png" alt="" />
       <div className="banner-body">
         <div className="banner-top">
-          <span className="banner-title">Verdict: Refuted</span>
+          <span className="banner-title">Verdict: Misleading</span>
           <span className="banner-time">now</span>
         </div>
-        <div className="banner-text">Floor sleeping won't 'realign' your spine — tap to see why</div>
+        <div className="banner-text">Waking at 3am isn't a blood sugar crash — tap to see why</div>
       </div>
     </div>
   )
