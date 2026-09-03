@@ -27,78 +27,47 @@ export type DemoPost = {
 const src = (domain: string): Source => ({ url: `https://${domain}`, domain })
 
 export const HERO_POST: DemoPost = {
-  video: '/story/lost-hikers.mp4',
-  poster: '/story/lost-hikers.jpg',
-  handle: 'jasonkpargin',
-  caption: 'Why humans tend to move counterclockwise',
-  likes: '238.7K',
-  comments: '3.4K',
-  sheetTitle: 'Why lost hikers walk in circles',
-  reportTitle: 'Why lost hikers walk in circles',
+  video: '/story/wifi-tracking.mp4',
+  poster: '/story/wifi-tracking.jpg',
+  handle: 'moyer.the.lawyer',
+  caption:
+    'Wi-Fi can map your movement within your household…and radar can detect a heartbeat through walls. #wifitrackin',
+  likes: '75.6K',
+  comments: '1.4K',
+  sheetTitle: 'Wi-Fi can track you through walls',
+  reportTitle: 'Wi-Fi can track you through walls',
   claims: [
     {
       statement:
-        'Humans have a natural tendency to turn or drift in a counterclockwise direction when walking.',
+        'Wi-Fi signals can be used to map human body positions and movement through walls inside a home.',
       verdict: 'Verified',
       explanation:
-        'A study published in Nature Communications tracked pedestrians in Spain and Japan and found a robust preference for counterclockwise turning in 32 of 33 experimental trials. The effect persisted even when people walked alone in open spaces and across different cultures and age groups.',
-      sources: [src('nature.com'), src('phys.org'), src('u-tokyo.ac.jp')],
+        'Carnegie Mellon and MIT researchers have demonstrated systems that map Wi-Fi signal reflections into human body poses and movement, even through walls. These approaches use deep neural networks to interpret phase and amplitude data from specialized transceiver arrays.',
+      sources: [src('arxiv.org'), src('publications.ri.cmu.edu'), src('rfpose.csail.mit.edu')],
     },
     {
       statement:
-        'Most grocery stores are designed with the entrance on the right to guide shoppers on a counterclockwise loop.',
-      verdict: 'Needs Nuance',
-      explanation:
-        'Retail-design sources confirm that in right-hand-traffic markets like the U.S., supermarkets commonly place entrances on the right to nudge shoppers counterclockwise. However, this is not universal; left-hand-traffic countries such as the U.K. often use opposite layouts.',
-      sources: [src('floridatrend.com'), src('inverse.com'), src('shopappy.com')],
-    },
-    {
-      statement:
-        'Races and race cars move counterclockwise because of this inherent human walking tendency.',
+        'Even with all personal devices powered down, your in-home location and movements can be easily tracked by anyone with the technology, meaning physical privacy is effectively lost.',
       verdict: 'Misleading',
       explanation:
-        'The study authors note a parallel but explicitly state that investigating sports is a task for future research. Traditional explanations for track direction involve stronger right legs or historical convention, not the new locomotor findings.',
-      sources: [src('nature.com'), src('smithsonianmag.com')],
+        'The video presents research capabilities as a current, everyday loss of privacy. In reality, these Wi-Fi sensing systems require deliberately deployed, multi-antenna hardware and calibrated environments, not standard home routers. The experiments were run in offices and classrooms with limited training data.',
+      sources: [src('infoq.com'), src('marktechpost.com')],
     },
     {
       statement:
-        'Lost hikers tend to walk in counterclockwise circles and are often found less than a mile from the trail even after many hours.',
-      verdict: 'Refuted',
-      explanation:
-        'A 2009 Current Biology study confirms that disoriented people walk in circles when they lack visual cues, but it explicitly ruled out a systematic counterclockwise bias. Participants circled unpredictably, sometimes left, sometimes right.',
-      sources: [src('mpg.de'), src('nationalgeographic.com'), src('sciencedirect.com')],
-    },
-    {
-      statement:
-        'The counterclockwise walking bias appears across different cultures and is also seen in cattle.',
+        'Radar and radio signals can detect microscopic body movement, including breathing, chest movement, and heartbeat, through walls from a distance.',
       verdict: 'Verified',
       explanation:
-        'The Nature Communications experiments produced the same leftward drift in both Spanish and Japanese walkers, indicating the bias is not culturally learned. Agricultural sources also cite studies showing that a majority of cattle prefer moving anticlockwise around handlers.',
-      sources: [src('en.unav.edu'), src('fwi.co.uk')],
+        'Peer-reviewed studies demonstrate through-wall detection of breathing and heart rate using ultra-wideband and continuous-wave radar. These systems measure minute chest movements via signal phase variations. They have been validated at short ranges and are primarily proposed for search-and-rescue and medical monitoring.',
+      sources: [src('frontiersin.org'), src('pmc.ncbi.nlm.nih.gov'), src('nature.com')],
     },
     {
       statement:
-        'The bias is not caused by right-handedness; left-handed people show the same counterclockwise tendency.',
-      verdict: 'Verified',
+        'Simply existing inside a home already creates a trackable digital footprint, and companies will inevitably exploit in-home movement patterns for targeted advertising.',
+      verdict: 'Misleading',
       explanation:
-        'The researchers directly tested whether handedness, footedness, or eye dominance caused the leftward drift and found no supporting evidence. Counterclockwise motion still emerged in experiments where all participants were left-handed.',
-      sources: [src('nature.com'), src('smithsonianmag.com')],
-    },
-    {
-      statement:
-        'Scientists do not yet know the exact reason humans have a counterclockwise walking bias.',
-      verdict: 'Verified',
-      explanation:
-        'The study authors state that while they have ruled out several obvious factors, the precise origin remains unknown. They suspect a biomechanical asymmetry but emphasize that more research is needed to identify it.',
-      sources: [src('nature.com'), src('phys.org')],
-    },
-    {
-      statement:
-        'If you are searching for a landmark while walking and cannot find it, there is a good chance it is off to your right.',
-      verdict: 'Hypothesis',
-      explanation:
-        'While the study documents a slight leftward veer during free walking, it never tested whether this reliably causes people to miss specific landmarks. The tip is a logical but unverified extrapolation from laboratory data.',
-      sources: [src('nature.com')],
+        'The video implies that because researchers can map poses with Wi-Fi, companies will soon harvest movement data for ads. No evidence shows that fitness or food companies are collecting such information; the cited research is academic and explicitly framed for elder care and low-cost sensing.',
+      sources: [src('publications.ri.cmu.edu'), src('syncedreview.com')],
     },
   ],
 }

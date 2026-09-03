@@ -10,7 +10,7 @@ export function Banner({ breathe = false }: { breathe?: boolean }) {
           <span className="banner-title">Verdict: Verified</span>
           <span className="banner-time">now</span>
         </div>
-        <div className="banner-text">People really do drift counterclockwise — tap to see why</div>
+        <div className="banner-text">Wi-Fi really can see through walls — tap to see why</div>
       </div>
     </div>
   )
